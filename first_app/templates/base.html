@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+    <title>{% block title %}News app{% endblock %}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(to right, rgb(120, 145, 207), rgb(63, 43, 150));
+        }
+        .navbar {
+            padding: 1em 0.4em;
+            background: #107a8b;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        a {
+            color: #f5eded;
+            font-family: 'Akaya Telivigala', cursive;
+            font-size: 20px;
+            margin-left: 30px;
+            text-decoration: none;
+        }
+        h1 {
+            color: #2b2024;
+            font-weight: 500;
+            font-size: 2.5em;
+            font-family: 'Shippori Mincho B1', serif;
+            margin-left: 30px;
+        }
+        p {
+            color: #dee1ec;
+            font-weight: 700;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="main-cont">
+        {% block content %}
+        {% endblock %}
+    
+        {% block js %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -14,4 +14,4 @@ def detail_view(request, pk):
     except:
         raise Http404
 
-    return HttpResponse(f'<h1>{obj.article}</h1>')
+    return render(request, 'news/detail.html', {'single_object': obj})

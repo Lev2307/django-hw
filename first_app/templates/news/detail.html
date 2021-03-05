@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ block.super }} - {{ single_object.article }}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ single_object.article }}</h1>
+
+{% include 'news/detail_snippet.html' with single_object=single_object %}
+{% endblock %}
