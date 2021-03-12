@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<div class="container">
+    {% block content %}
+    <div class="card">
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="article">
+            <textarea name="body"></textarea>
+            <input type="submit" value="Создать">
+        </form>
+    </div>
+{% endblock %}
+</div>
