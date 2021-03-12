@@ -44,16 +44,52 @@
             font-family: 'Poppins', sans-serif;
             margin-left: 30px;
         }
+        footer {
+            height: 20vh;
+            background: #107a8b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        span {
+            color: white;
+            font-size: 19px;
+            font-family: 'Akaya Telivigala', cursive;
+            margin-left: 30px;
+        }
+        .icons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-right: 30px;
+        }
+        .icon {
+            clip-path: circle(50% at 50% 50%);
+            height: 65px;
+            width: 65px;
+            margin-left: 20px;
+            background: lightslategray;
+        }
+        h4 {
+            color: white;
+            font-size: 14px;
+            font-family: 'Akaya Telivigala', cursive;
+            margin-right: 30px;
+        }
     </style>
 </head>
 <body>
-    {% include "navbar.html" %}
-    <div class="main-cont">
-        {% block content %}
-        {% endblock %}
-    
-        {% block js %}
-        {% endblock %}
-    </div>
+        {% include "navbar.html" %}
+        <div class="main-cont">
+            {% block content %}
+            {% endblock %}
+        
+            {% block js %}
+            {% endblock %}
+        </div>
+    {% include "footer.html" %}
 </body>
 </html>
