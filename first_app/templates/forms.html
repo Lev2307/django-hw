@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
-<div class="container">
-    {% block content %}
+{% block content %}
+<div class="container-for-form">
     <div class="card">
         <form action="" method="post">
             {% csrf_token %}
-            <input type="text" name="article">
-            <textarea name="body"></textarea>
-            <input type="submit" value="Создать">
+            <input type="text" name="article" placeholder="Name of article: ">
+            <textarea name="body" rows="8" cols="12" placeholder="Text of article: "></textarea>
+            <input type="submit" value="Create" class="button">
         </form>
     </div>
-{% endblock %}
 </div>
+{% endblock %}
