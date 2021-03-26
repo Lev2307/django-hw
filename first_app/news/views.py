@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
+
+from .forms import NewsModelForm
+from .forms import NewsForm
 from news.models import News
 # Create your views here.
 
@@ -27,13 +30,23 @@ def test_view(request, *args, **kwargs):
     obj = News.objects.get(id=data['pk'][0])
     return HttpResponse(f'<b>{obj.article}</b>')
 
-def create_view(request, *args, **kwargs):
-    # print(request.GET)
-    # print(request.POST)
-    if request.method == 'POST' and request.POST['article']:
-        data = request.POST
-        article = data['article']
-        body = data['body']
-        News.objects.create(article=article, body=body)
-    return render(request, 'forms.html')
+# def create_view(request, *args, **kwargs):
+#     # print(request.GET)
+#     # print(request.POST)
+#     if request.method == 'POST' and request.POST['article']:
+#         data = request.POST
+#         article = data['article']
+#         body = data['body']
+#         News.objects.create(article=article, body=body)
+#     return render(request, 'forms.html')
 
+def create_view(request, *args, **kwargs):
+    form = NewsModelForm(request.POST or None)
+    context = {'form': form}
+    # if request.method == 'POST' and request.POST['article']:
+    #     form = NewsForm(request.POST)
+    if form.is_valid():
+        print(form.cleaned_data)
+        data = form.cleaned_data
+        News.objects.create(**data)
+    return render(request, 'forms.html', context)

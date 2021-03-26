@@ -5,10 +5,11 @@
     <div class="card">
         <form action="" method="post">
             {% csrf_token %}
-            <input type="text" name="article" placeholder="Name of article: ">
-            <textarea name="body" rows="8" cols="12" placeholder="Text of article: "></textarea>
+
+            {{ form.as_p }}
+
             <input type="submit" value="Create" class="button">
         </form>
     </div>
-</div>
+</div>      
 {% endblock %}
