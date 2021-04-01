@@ -43,13 +43,17 @@
             font-size: 15px;
             font-family: 'Poppins', sans-serif;
             margin-left: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
         }
         .card {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 350px;
-            height: 350px;
+            width: 380px;
+            height: 380px;
             background: rgb(76, 98, 155);
             border-radius: 15px;
             -webkit-box-shadow: 22px -22px 12px -1px rgba(69, 84, 96, 0.34);
@@ -65,19 +69,21 @@
         form {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: flex-start;
+            position: relative;
         }
         textarea {
             resize: none;
             width: 250px;
             letter-spacing: 1px;
             text-indent: 10px;
-            margin-top: 20px;
+            margin-top: 5px;
             color: #92898a;
             border-radius: 5px;
             border: 3px solid #fff;
             line-height: 1.3em;
+            position: relative;
         }
         input {
             width: 150px;
@@ -89,6 +95,7 @@
             border: 3px solid #fff;
             -webkit-transition: width .35s ease-in-out;
             transition: width .35s ease-in-out;
+            margin-top: 5px;
         }
         input:focus {
             width: 248px;
@@ -97,8 +104,8 @@
             background: #107a8b;
             width: 84px;
             height: 40px;
-            margin-top: 20px;
             border-radius: 10px;
+            margin-bottom: 10px;
             border: 1px solid #107a8b;
             display: flex;
             justify-content: flex-start;
@@ -106,10 +113,33 @@
             color: #fff;
             font-size: 14px;
             font-family: 'Shippori Mincho B1', serif;
-            
+            margin-left: 30px;
         }
         .button:focus {
             width: 84px;
+        }
+        .wrapper {
+            margin-bottom: 10px;
+        }
+        .errorlist {
+            display: flex;
+            list-style: none;
+            justify-content: flex-start;
+            align-items: center;
+            margin-block-start: 0;
+            margin-block-end: 0;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            padding-inline-start: 0;
+        }
+        li {
+            color: #ff5959;
+            font-size: 14px;
+            font-family: 'Shippori Mincho B1', serif;
+            width: 200px;
+            height: 20px;
+            position: absolute;
+            left: 30px;
         }
     </style>
 </head>
