@@ -5,9 +5,7 @@
     <div class="card">
         <form action="" method="post">
             {% csrf_token %}
-            <div class="wrapper">
-                {{ form.as_p }}
-            </div>
+            {{ form.as_p }}
             <input type="submit" value="Create" class="button">
         </form>
     </div>
