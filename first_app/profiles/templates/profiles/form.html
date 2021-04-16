@@ -5,5 +5,10 @@
         {% csrf_token %}
 
         {{ form.as_p }}
+        {% if register %}
+            <input type="submit" value="Регистрация">
+        {% else %}
+            <input type="submit" value="Войти">
+        {% endif %}
     </form>
 {% endblock %}
