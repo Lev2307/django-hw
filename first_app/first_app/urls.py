@@ -28,4 +28,3 @@ urlpatterns = [
     path('news/create', create_view),
     path('admin/', admin.site.urls),
 ]
- 

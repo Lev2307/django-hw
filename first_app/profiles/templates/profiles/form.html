@@ -1,14 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="" method="post">
+<div class="login-form">
+    <form class="form" action="" method="post">
         {% csrf_token %}
 
-        {{ form.as_p }}
         {% if register %}
-            <input type="submit" value="Регистрация">
+        <div class="circle-user_2">
+            <img src="https://img.icons8.com/ios/50/000000/user-male-circle.png"/>
+        </div>
+            {{ form.as_p }}
+            <input class="reg" type="submit" value="Регистрация">
         {% else %}
-            <input type="submit" value="Войти">
+        <div class="circle-user">
+            <img src="https://img.icons8.com/ios/50/000000/user-male-circle.png"/>
+        </div>
+            <h1 class="enter">Вход в аккаунт</h1>
+            {{ form.as_p }}
+            <input class="btn-enter" type="submit" value="Войти">
+            <div class="cont">
+                <div class="checkbox">
+                    <input type="checkbox" value="lsRememberMe" id="rememberMe"> <span for="rememberMe">Запомнить меня</span>
+                </div>
+                <a class="forgot_password" href="/">Забыли пароль?</a>
+            </div>
         {% endif %}
     </form>
+    {% if register %}
+        <p></p>
+    {% else %}
+    <p class="text"> Нет аккаунта? <a class="registration" href="/register">Зарегистрируйтесь!</a></p>
+    {% endif %}
+</div>
 {% endblock %}

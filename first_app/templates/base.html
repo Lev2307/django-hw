@@ -14,11 +14,11 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background: linear-gradient(to right, rgb(98, 123, 187), rgb(63, 43, 150));
+            background: #d47677;
         }
         .navbar {
             padding: 1em 0.4em;
-            background: #107a8b;
+            background: #7c203a;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -54,11 +54,8 @@
             align-items: center;
             width: 380px;
             height: 380px;
-            background: rgb(76, 98, 155);
+            background: #ececec;
             border-radius: 15px;
-            -webkit-box-shadow: 22px -22px 12px -1px rgba(69, 84, 96, 0.34);
-            -moz-box-shadow: 22px -22px 12px -1px rgba(69, 84, 96, 0.34);
-            box-shadow: 22px -22px 12px -1px rgba(69, 84, 96, 0.34);
         }
         .container-for-form {
             display: flex;
@@ -72,6 +69,27 @@
             justify-content: flex-start;
             align-items: flex-start;
             position: relative;
+        }
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: relative;
+            margin-right: 10px;
+            margin-bottom: 40px;
+        }
+        .reg {
+            margin-bottom: 20px;
+            width: 215px;
+            height: 33px;
+            background: #70c5c0;
+            border: 1px #70c5c0 solid;
+            border-radius: 0;
+            color: #fffcfb;
+            font-size: 14px;
+            font-family: 'Shippori Mincho B1', serif;
+            margin-left: 30px;
         }
         textarea {
             resize: none;
@@ -135,8 +153,129 @@
             position: absolute;
             left: 30px;
         }
+        .login-form {
+            position: absolute;
+            top: 53%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ececec;
+            height: 340px;
+            width: 310px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        label {
+            display: none;
+        }
+        .enter {
+            color: #95abb8;
+            font-weight: 500;
+            font-size: 30px;
+            font-family: 'Shippori Mincho B1', serif;
+            margin-left: 45px;
+        }
+        .input {
+            width: 210px;
+            height: 25px;
+            text-indent: 10px;
+            border: 1px gray solid;
+        }
+        .form_password {
+            width: 210px;
+            height: 25px;
+            text-indent: 10px;
+            margin-bottom: 10px;
+            border: 1px gray solid;
+        }
+        .btn-enter {
+            margin-bottom: 20px;
+            width: 215px;
+            height: 33px;
+            background: #70c5c0;
+            border: 1px #70c5c0 solid;
+            border-radius: 0;
+            color: #fffcfb;
+            font-size: 14px;
+            font-family: 'Shippori Mincho B1', serif;
+            margin-left: 30px;
+        }
+        .circle-user {
+            background: #70c5c0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            vertical-align: middle;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            margin-left: 105px;
+        }
+        .circle-user_2 {
+            background: #70c5c0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            vertical-align: middle;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            margin-left: 105px;
+        }
+        .checkbox {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 25px;
+        }
+        input[type="checkbox"] {
+            -webkit-appearance: checkbox;
+                -moz-appearance: checkbox;
+                    appearance: checkbox;
+            display: inline-block;
+            width: auto;
+        }
+        span {
+            color: #8da1ac;
+            font-size: 10px;
+            font-family: 'Shippori Mincho B1', serif;
+            font-weight: 600;
+            margin-left: 3px;
+        }
+        .cont {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .forgot_password {
+            color: #8da1ac;
+            font-size: 14px;
+            font-family: 'Akaya Telivigala', cursive;;
+            font-weight: 300;
+        }
+        .registration {
+            color: #ffffff;
+            font-size: 14px;
+            font-family: 'Akaya Telivigala', cursive;
+            margin-left: 0;
+        }
+        .text {
+            display: inline-block;
+        }
     </style>
 </head>
+<!-- #04537d
+    #d47677
+    #70c5c0 -->
 <body>
     {% include "navbar.html" %}
     <div class="main-cont">
@@ -146,8 +285,5 @@
         {% block js %}
         {% endblock %}
     </div>
-    <script>
-
-    </script>
 </body>
 </html>
