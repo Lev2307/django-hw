@@ -5,6 +5,7 @@
 
     <div class="nav-menu">
         {% if user.is_authenticated %}
+            <span>username: {{ user }}</span>
             <a class="logout" href="/logout">Выйти</a>
         {% else %}
             <div class="wrapper">

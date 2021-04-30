@@ -21,6 +21,15 @@ class LoginForm(forms.Form):
         )
     )
 
+    def clean_username(self):
+        profile = self.cleaned_data.get('username')
+        queryset = User.objects.filter(username__iexact=profile)
+
+        if not queryset.exists():
+            raise forms.ValidationError("Wrong username or password")
+
+        return profile
+
 class RegisterForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
@@ -46,3 +55,12 @@ class RegisterForm(forms.Form):
             }
         )
     )
+
+    def clean_username(self):
+        profile = self.cleaned_data.get("username")
+        queryset = User.objects.filter(username__iexact=profile)
+
+        if queryset.exists():
+            raise forms.ValidationError("Invalid username")
+
+        return profile
