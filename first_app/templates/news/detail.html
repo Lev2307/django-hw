@@ -15,4 +15,13 @@
     <a href="/news/delete/{{ single_object.pk }}">Удалить</a>
 {% endif %}
 
+{% for c in single_object.commentary.all %}
+    <p>
+        {{ c.date.time }}
+        {{ c.user }}
+        {{ c.text }}
+    </p>
+{% endfor %}
+<!-- <a href="/news/commentary/">Комментировать</a> -->
+
 {% endblock %}

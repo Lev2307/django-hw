@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import News
+from .models import News, Commentaries
 
 class NewsForm(forms.Form):
     article = forms.CharField()
@@ -29,4 +29,12 @@ class NewsModelForm(forms.ModelForm):
         elif len(data) > 45:
             raise forms.ValidationError('Body is too long')
         return data
+
+class CommentaryModelForm(forms.ModelForm):
+    class Meta:
+        model = Commentaries
+        fields = [
+            'text'
+        ]
+
     

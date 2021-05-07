@@ -1,12 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import login_required, permission_required
 from django.urls import reverse
 
-from .forms import NewsModelForm
+from .forms import NewsModelForm, NewsForm, CommentaryModelForm
 from .forms import NewsForm
-from news.models import News
+from news.models import News, Commentaries
+
 # Create your views here.
 
 def index(request, *args, **kwargs):
@@ -58,3 +59,21 @@ def delete_view(request, pk):
         raise Http404
     obj.delete()
     return HttpResponseRedirect(reverse('index'))
+
+@login_required
+def commentary_view(request, pk):
+    form = CommentaryModelForm(request.POST or None)
+    try:
+        obj = News.objects.get(id=pk)
+    except News.DoesNotExist:
+        raise Http404
+
+    if form.is_valid():
+        text = form.cleaned_data.get('text')
+        user = request.user
+        commentary_obj = Commentaries(user=user, text=text)
+        commentary_obj.save()
+        obj.commentary.add(commentary_obj)
+        obj.save()
+        return redirect(f'/id/{pk}')
+    return render(request, 'news/commentary.html', {'single_object': obj, 'form': form})
