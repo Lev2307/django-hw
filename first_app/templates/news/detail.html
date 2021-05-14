@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h5>Author: {{ single_object.author }}</h5>
+<h5 class="author">Author: {{ single_object.author }}</h5>
 <h1>{{ single_object.article }}</h1>
 
 {% include 'news/detail_snippet.html' with single_object=single_object %}
@@ -22,6 +22,15 @@
         {{ c.text }}
     </p>
 {% endfor %}
-<!-- <a href="/news/commentary/">Комментировать</a> -->
+<a class="commentary" href="/news/commentary/{{ single_object.pk }}">Комментировать</a>
 
+<h5>Likes: {{ single_object.get_likes }}</h5>
+<form action="/news/like/{{ single_object.pk }}/" method="post">
+    {% csrf_token %}
+    {% if not liked %}
+        <input type="submit" value="Лайк">
+    {% else %}
+    <input type="submit" value="Дизлайк">
+    {% endif %}
+</form>
 {% endblock %}

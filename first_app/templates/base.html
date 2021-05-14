@@ -271,6 +271,31 @@
         .text {
             display: inline-block;
         }
+        .commentary {
+            padding: 9px 10px;
+            color: #ffffff;
+            font-family: 'Akaya Telivigala', cursive;
+            font-size: 20px;
+            background-color: #7c203a;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        .author {
+            color: #ffffff;
+            margin-left: 30px;
+            font-size: 23px;
+            font-family: 'Shippori Mincho B1', serif;
+            position: relative;
+        }
+        .author::before {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: #7c203a;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
     </style>
 </head>
 <!-- #04537d

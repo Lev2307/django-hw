@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import login_required, permission_required
 from django.urls import reverse
 
 from .forms import NewsModelForm, NewsForm, CommentaryModelForm
 from .forms import NewsForm
-from news.models import News, Commentaries
+from news.models import News, Commentaries, Likes
 
 # Create your views here.
 
@@ -16,12 +15,16 @@ def index(request, *args, **kwargs):
     return render(request, 'index.html', context)
 
 def detail_view(request, pk):
+    user = request.user
+    liked = False
     try:
         obj = News.objects.get(id=pk)
     except:
         raise Http404
 
-    return render(request, 'news/detail.html', {'single_object': obj})
+    if request.user.is_authenticated and obj.likes.filter(user=user):
+        liked = True
+    return render(request, 'news/detail.html', {'single_object': obj, 'liked': liked})
 
 @login_required
 def create_view(request, *args, **kwargs):
@@ -75,5 +78,22 @@ def commentary_view(request, pk):
         commentary_obj.save()
         obj.commentary.add(commentary_obj)
         obj.save()
-        return redirect(f'/id/{pk}')
+        return HttpResponseRedirect(reverse('detail-news', args=[pk]))
     return render(request, 'news/commentary.html', {'single_object': obj, 'form': form})
+
+@login_required
+def likes_view(request, pk):
+    try:
+        obj = News.objects.get(id=pk)
+    except:
+        raise Http404
+    if request.method == 'POST':
+        user = request.user
+        if not obj.likes.filter(user=user):
+            like_obj = Likes(user=user, like=True)
+            like_obj.save()
+            obj.likes.add(like_obj)
+            obj.save()
+        else:
+            obj.likes.filter(user=user).delete()
+    return HttpResponseRedirect(reverse('detail-news', args=[pk]))
