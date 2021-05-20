@@ -8,10 +8,10 @@
 
 {% for news in news_list %}
     <h1>
-        <a href="news/{{ news.id }}">{{ news.article }}</a>
+        <a class="link" href="news/{{ news.id }}">{{ news.article }}</a>
     </h1>
 {% endfor %}
 
 <h1 style="margin-left: 60px;">Create News</h1>
-<a href="news/create" style="margin-left: 60px;">Create</a>
+<a class="create_article" href="news/create" style="margin-left: 60px;">Create</a>
 {% endblock %}

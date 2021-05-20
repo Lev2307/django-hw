@@ -97,3 +97,36 @@ def likes_view(request, pk):
         else:
             obj.likes.filter(user=user).delete()
     return HttpResponseRedirect(reverse('detail-news', args=[pk]))
+
+@login_required
+def edit_commentary_view(request, pk, ck):
+    try:
+        obj = News.objects.get(id=pk)
+        commentary_obj = Commentaries.objects.get(id=ck)
+    except News.DoesNotExist:
+        raise Http404
+
+    user = request.user
+    if request.method == 'POST':
+        form = CommentaryModelForm(request.POST or None, instance = commentary_obj)
+        if form.is_valid():
+            commentary_obj = form.save(commit=False)
+            commentary_obj.save()
+            print(ck)
+            return HttpResponseRedirect(reverse('detail-news', args=[pk]))
+    else:
+        form = CommentaryModelForm(instance=commentary_obj)
+
+    return render(request, 'edit_commentary.html', {'single_object': obj, 'commentary': commentary_obj, 'form': form})
+
+@login_required
+def delete_commentary_view(request, pk, ck):
+    try:
+        obj = News.objects.get(id=pk)
+        commentary_obj = Commentaries.objects.get(id=ck)
+    except Commentaries.DoesNotExist:
+        raise Http404
+    obj.commentary.remove(commentary_obj)
+    commentary_obj.delete()
+
+    return HttpResponseRedirect(reverse('detail-news', args=[pk]))

@@ -28,4 +28,7 @@ class News(models.Model):
 
     def get_likes(self):
         return self.likes.count()
+    
+    def get_comments_counter(self):
+        return self.commentary.count()
 

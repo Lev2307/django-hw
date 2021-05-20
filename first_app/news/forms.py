@@ -24,9 +24,7 @@ class NewsModelForm(forms.ModelForm):
     
     def clean_body(self):
         data = self.cleaned_data.get('body')
-        if len(data) < 15:
-            raise forms.ValidationError('Body isn`t long enough')
-        elif len(data) > 45:
+        if len(data) > 75:
             raise forms.ValidationError('Body is too long')
         return data
 

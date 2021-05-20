@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from news.views import index, detail_view, create_view, edit_view, delete_view, commentary_view, likes_view
+from news.views import index, detail_view, create_view, edit_view, delete_view, commentary_view, likes_view, edit_commentary_view, delete_commentary_view
 from profiles.views import logout_view, login_view, register_view
 
 urlpatterns = [
@@ -26,6 +26,8 @@ urlpatterns = [
     path('news/delete/<int:pk>/', delete_view),
     path('news/like/<int:pk>/', likes_view),
     path('news/edit/<int:pk>/', edit_view),
+    path('news/<int:pk>/edit_commentary/<int:ck>/', edit_commentary_view),
+    path('news/<int:pk>/delete_commentary/<int:ck>/', delete_commentary_view),
     path('login/', login_view),
     path('register/', register_view),
     path('news/<int:pk>/', detail_view, name='detail-news'),
