@@ -22,6 +22,7 @@ class News(models.Model):
     body = models.TextField(blank=True, null=True)
     commentary = models.ManyToManyField(Commentaries)
     likes = models.ManyToManyField(Likes)
+    image = models.ImageField(upload_to='news_image/', null=True, blank=True)
 
     def __str__(self):
         return self.article

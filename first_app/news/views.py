@@ -27,15 +27,17 @@ def detail_view(request, pk):
     return render(request, 'news/detail.html', {'single_object': obj, 'liked': liked})
 
 @login_required
+@permission_required('user.is_staff', raise_exception=True)
 def create_view(request, *args, **kwargs):
+    if request.method == 'POST':
+        form = NewsModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.author = request.user
+            obj.save()
+            return render(request, 'forms.html', {'form': form, 'obj': obj})
     form = NewsModelForm(request.POST or None)
-    context = {'form': form}
-    if form.is_valid():
-        print(form.cleaned_data)
-        data = form.cleaned_data
-        News.objects.create(**data)
-    return render(request, 'forms.html', context)
-
+    return render(request, 'forms.html', {'form': form})
 @login_required
 @permission_required('user.is_staff')
 def edit_view(request, pk):

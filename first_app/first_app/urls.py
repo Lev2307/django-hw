@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 from news.views import index, detail_view, create_view, edit_view, delete_view, commentary_view, likes_view, edit_commentary_view, delete_commentary_view
 from profiles.views import logout_view, login_view, register_view
@@ -33,4 +35,4 @@ urlpatterns = [
     path('news/<int:pk>/', detail_view, name='detail-news'),
     path('news/create', create_view),
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

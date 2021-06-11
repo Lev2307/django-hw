@@ -11,7 +11,8 @@ class NewsModelForm(forms.ModelForm):
         model = News
         fields = [
             'article',
-            'body'
+            'body',
+            'image',
         ]
     
     def clean_article(self):

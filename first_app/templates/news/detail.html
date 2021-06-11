@@ -5,6 +5,7 @@
 </head>
 {% extends "base.html" %}
 
+{% load static %}
 {% block title %}
 {{ block.super }} - {{ single_object.article }}
 {% endblock %}
@@ -35,6 +36,7 @@
         </div>
     </div>
 {% endfor %}
+<img src="{% static single_object.image.url %}" alt="{{ single_object.article }} " height="400">
 <a class="commentary" href="/news/commentary/{{ single_object.pk }}">Комментировать</a>
 
 <div class="likes_block">
