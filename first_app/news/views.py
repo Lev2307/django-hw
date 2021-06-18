@@ -21,7 +21,7 @@ def detail_view(request, pk):
         obj = News.objects.get(id=pk)
     except:
         raise Http404
-
+    
     if request.user.is_authenticated and obj.likes.filter(user=user):
         liked = True
     return render(request, 'news/detail.html', {'single_object': obj, 'liked': liked})

@@ -11,5 +11,12 @@
             <input type="submit" value="Create" class="button">
         </form>
     </div>
-</div>      
+</div>
+{% if obj.get_image_name %}
+    <h1>
+        <mark>image: {{ obj.get_image_name }} added successfully</mark>
+    </h1>
+{% endif %}
 {% endblock %}
+
+

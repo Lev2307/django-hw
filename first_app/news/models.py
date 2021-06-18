@@ -1,5 +1,9 @@
 from django.db import models
 from django.conf import settings
+from django.core.files.base import ContentFile
+import os
+from PIL import Image
+from io import BytesIO
 
 # Create your models here.
 User = settings.AUTH_USER_MODEL
@@ -22,7 +26,8 @@ class News(models.Model):
     body = models.TextField(blank=True, null=True)
     commentary = models.ManyToManyField(Commentaries)
     likes = models.ManyToManyField(Likes)
-    image = models.ImageField(upload_to='news_image/', null=True, blank=True)
+    image = models.ImageField(upload_to='news_image/', default='news_images/default_news.jpg', null=True, blank=True)
+    image_thumbnail = models.ImageField(upload_to='news_images/', null=True, blank=True)
 
     def __str__(self):
         return self.article
@@ -33,3 +38,13 @@ class News(models.Model):
     def get_comments_counter(self):
         return self.commentary.count()
 
+    def get_image_name(self):
+        return self.image.name if self.image else False
+
+    def save(self, *args, **kwargs):
+        self.make_thumbnail()
+        super(News, self).save(*args, **kwargs)
+
+    def make_thumbnail(self):
+        image = Image.open(self.image)
+        image.thumbnail((100, 100), Image.ANTIALIAS)
