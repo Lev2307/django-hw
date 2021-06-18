@@ -5,6 +5,8 @@
     <div class="card">
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
+            <h3 class="art">article</h3>
+            <h3 class="bod">body</h3>
             {{ form.as_p }}
             <input type="submit" value="Create" class="button">
         </form>

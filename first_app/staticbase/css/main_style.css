@@ -1,0 +1,482 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #002651;
+}
+.navbar {
+    padding: 1em 0.4em;
+    background: #278ea5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.homepage {
+    color: #f5eded;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    margin-left: 30px;
+    text-decoration: none;
+}
+.logout {
+    color: #f5eded;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    margin-left: 30px;
+    text-decoration: none;
+}
+.login {
+    color: #f5eded;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    margin-left: 30px;
+    text-decoration: none;
+}
+.link {
+    color: #f5eded;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    margin-left: 30px;
+    text-decoration: none;
+}
+h1 {
+    color: #278ea5;
+    font-weight: 500;
+    font-size: 2.5em;
+    font-family: 'Shippori Mincho B1', serif;
+    margin-left: 30px;
+}
+p {
+    color: #dee1ec;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 380px;
+    background: #ececec;
+    border-radius: 15px;
+    position: relative;
+}
+.container-for-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 40px;
+}
+.reg {
+    margin-bottom: 20px;
+    width: 215px;
+    height: 33px;
+    background: #70c5c0;
+    border: 1px #70c5c0 solid;
+    border-radius: 0;
+    color: #fffcfb;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    margin-left: 30px;
+}
+textarea {
+    resize: none;
+    width: 250px;
+    letter-spacing: 1px;
+    text-indent: 10px;
+    margin-top: 5px;
+    color: #92898a;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    line-height: 1.3em;
+    position: relative;
+}
+#id_article {
+    width: 150px;
+    height: 20px;
+    letter-spacing: 1px;
+    text-indent: 10px;
+    color: #92898a;
+    border-radius: 5px;
+    border: 3px solid #fff;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+.button {
+    background: #107a8b;
+    width: 84px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #107a8b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    margin-left: 30px;
+}
+.button:focus {
+    width: 84px;
+}
+.errorlist {
+    display: flex;
+    list-style: none;
+    justify-content: flex-start;
+    align-items: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0;
+}
+li {
+    color: black;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    left: 30px;
+}
+.login-form {
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ececec;
+    height: 360px;
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+label {
+    display: none;
+}
+.enter {
+    color: #95abb8;
+    font-weight: 500;
+    font-size: 30px;
+    font-family: 'Shippori Mincho B1', serif;
+}
+.input {
+    width: 210px;
+    height: 25px;
+    text-indent: 10px;
+    border: 1px gray solid;
+}
+.form_password {
+    width: 210px;
+    height: 25px;
+    text-indent: 10px;
+    margin-bottom: 10px;
+    border: 1px gray solid;
+}
+.btn-enter {
+    margin-bottom: 20px;
+    width: 215px;
+    height: 33px;
+    background: #70c5c0;
+    border: 1px #70c5c0 solid;
+    border-radius: 0;
+    color: #fffcfb;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    margin-left: 30px;
+}
+.circle-user {
+    background: #70c5c0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+.circle-user_2 {
+    background: #70c5c0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 105px;
+}
+.checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25px;
+}
+input[type="checkbox"] {
+    -webkit-appearance: checkbox;
+        -moz-appearance: checkbox;
+            appearance: checkbox;
+    display: inline-block;
+    width: auto;
+}
+span {
+    color: #8da1ac;
+    font-size: 10px;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 600;
+    margin-left: 3px;
+}
+.cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 360px;
+}
+.main-cont_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+}
+.forgot_password {
+    color: #8da1ac;
+    font-size: 14px;
+    font-family: 'Akaya Telivigala', cursive;;
+    font-weight: 300;
+    margin-left: 50px;
+}
+.registration {
+    color: #ffffff;
+    font-size: 14px;
+    font-family: 'Akaya Telivigala', cursive;
+    margin-left: 0;
+}
+.commentary {
+    padding: 9px 10px;
+    color: #ffffff;
+    max-width: 160px;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    background-color: #278ea5;
+    border-radius: 10px;
+    margin-top: 30px;
+    display: block;
+    text-decoration: none;
+    margin-left: 30px;
+}
+.author {
+    color: #ffffff;
+    margin-left: 30px;
+    font-size: 23px;
+    font-family: 'Shippori Mincho B1', serif;
+    position: relative;
+}
+.author::before {
+    content: '';
+    width: 100px;
+    height: 4px;
+    background-color: #278ea5;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.for_admin {
+    padding: 20px;
+    padding-left: 0;
+}
+.change {
+    color: #fff;
+    padding: 10px 15px;
+    background-color: #6e8605;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'Akaya Telivigala', cursive;
+    margin-left: 30px;
+}
+.delete_article {
+    color: #fff;
+    padding: 10px 15px;
+    background-color: #8a1f25;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'Akaya Telivigala', cursive;
+    margin-left: 30px;
+}
+.body_article {
+    color: #38b18a;
+}
+.commentary_block {
+    width: 70%;
+    border: 2px solid black;
+    margin-top: 50px;
+    margin-left: 30px;
+    padding-bottom: 10px;
+}
+.commentary_block:nth-child(1) {
+    width: 300px;
+    border: 2px solid black;
+    margin-top: 100px;
+}
+.time_user {
+    display: flex;
+    margin-top: 10px;
+}
+.date {
+    color: #ffffff;
+    font-size: 18px;
+}
+.user {
+    color: #278ea5;
+    font-size: 18px;
+    margin-left: 5px;
+}
+.text {
+    font-size: 22px;
+    color: #38b18a;
+    font-family: 'Shippori Mincho B1', serif;
+    margin-bottom: 40px;
+    max-width: 100%;
+    display: inline-block;
+}
+.user_nav {
+    color: #002651;
+    font-size: 20px;
+}
+.to_change {
+    width: 140px;
+    height: 30px;
+    background: #38b18a;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 30px;
+    border: 3px solid #38b18a;
+}
+.create_article {
+    color: #f5eded;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    margin-left: 30px;
+}
+.edit_del {
+    margin-left: 20px;
+}
+.edit_comm {
+    border-radius: 5px;
+    text-decoration: none;
+    color: rgb(194, 194, 37);
+    font-size: 15px;
+    margin-left: 10px;
+    font-family: 'Akaya Telivigala', cursive;
+}
+.delete_comm {
+    border-radius: 5px;
+    text-decoration: none;
+    color: rgb(207, 26, 26);
+    font-size: 15px;
+    margin-left: 20px;
+    font-family: 'Akaya Telivigala', cursive;
+}
+.likes_block {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.like {
+    border-radius: 50%;
+    background: #38b18a;
+    color: white;
+    border: 3px solid #38b18a;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -20px;
+    right: -40px;
+}
+.dislike {
+    border-radius: 50%;
+    background: rgb(197, 23, 23);
+    color: white;
+    border: 3px solid rgb(197, 23, 23);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    top: -20px;
+    right: -40px;
+}
+.likes_count {
+    font-size: 20px;
+    font-family: 'Shippori Mincho B1', serif;
+    color: #fff;
+}
+.image {
+    margin-left: 30px;
+}
+.art {
+    font-size: 18px;
+    color: #000;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    position: absolute;
+    top: -5px;
+    left: -30px;
+}
+.bod {
+    font-size: 18px;
+    color: #000;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    position: absolute;
+    top: 55px;
+    left: -20px;
+}
+#id_image {
+    color: #000;
+}
