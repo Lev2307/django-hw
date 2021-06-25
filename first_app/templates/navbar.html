@@ -5,7 +5,7 @@
 
     <div class="nav-menu">
         {% if user.is_authenticated %}
-            <span class="user_nav">user: {{ user }}</span>
+            <span class="user_nav">user: <a href="/profile/{{ user.id }}">{{ user }}</a></span>
             <a class="logout" href="/logout">Выйти</a>
         {% else %}
             <div class="wrapper">

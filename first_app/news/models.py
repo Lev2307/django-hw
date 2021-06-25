@@ -47,4 +47,18 @@ class News(models.Model):
 
     def make_thumbnail(self):
         image = Image.open(self.image)
-        image.thumbnail((100, 100), Image.ANTIALIAS)
+        image.thumbnail((200, 200), Image.ANTIALIAS)
+        thumb_name, thumb_extension = os.path.splitext(self.image.name)
+        thumb_extension = thumb_extension.lower()
+        thumb_filename = thumb_name.split('/')[0] + '_thumb' + thumb_extension
+        if thumb_extension in ['.jpg', '.jpeg']:
+            FILE_TYPE = 'JPEG'
+        elif thumb_extension == '.gif':
+            FILE_TYPE = 'GIF'
+        elif thumb_extension == '.png':
+            FILE_TYPE = 'PNG'
+        temp_thumb = BytesIO()
+        image.save(temp_thumb, FILE_TYPE)
+        temp_thumb.seek(0)
+        self.image_thumbnail.save(thumb_filename, ContentFile(temp_thumb.read()), save=False)
+        temp_thumb.close() 
