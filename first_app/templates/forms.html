@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% load static %}
 {% block content %}
 <div class="container-for-form">
     <div class="card">
@@ -8,15 +9,27 @@
             <h3 class="art">article</h3>
             <h3 class="bod">body</h3>
             {{ form.as_p }}
-            <input type="submit" value="Create" class="button">
+            <div class="wrapper">
+                <input type="submit" value="Create" class="button">
+            </div>
         </form>
     </div>
 </div>
-{% if obj.get_image_name %}
-    <h1>
-        <mark>image: {{ obj.get_image_name }} added successfully</mark>
-    </h1>
-{% endif %}
+
+<div class="card_success">
+    {% if obj.get_image_name %}
+        <h4>
+            <span class="image_added">image: <span class="image_name">{{ obj.get_image_name }}</span> was added successfully</span>
+        </h4>
+    {% endif %}
+</div>
+
+<script>
+    let card = document.querySelector('.card_success');
+    let image = document.querySelector('.wrapper');
+
+    image.addEventListener('click', function() {
+        card.classList.toggle('visible');
+    });
+</script>
 {% endblock %}
-
-

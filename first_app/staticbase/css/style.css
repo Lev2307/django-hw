@@ -35,8 +35,7 @@ body {
 .link {
     color: #f5eded;
     font-family: 'Akaya Telivigala', cursive;
-    font-size: 20px;
-    margin-left: 30px;
+    font-size: 25px;
     text-decoration: none;
 }
 h1 {
@@ -65,6 +64,7 @@ p {
     height: 380px;
     background: #ececec;
     border-radius: 15px;
+    position: relative;
 }
 .container-for-form {
     display: flex;
@@ -112,7 +112,7 @@ textarea {
     line-height: 1.3em;
     position: relative;
 }
-input {
+#id_article {
     width: 150px;
     height: 20px;
     letter-spacing: 1px;
@@ -122,25 +122,6 @@ input {
     border: 3px solid #fff;
     -webkit-transition: width .35s ease-in-out;
     transition: width .35s ease-in-out;
-    margin-top: 5px;
-}
-.button {
-    background: #107a8b;
-    width: 84px;
-    height: 40px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #107a8b;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    color: #fff;
-    font-size: 14px;
-    font-family: 'Shippori Mincho B1', serif;
-    margin-left: 30px;
-}
-.button:focus {
-    width: 84px;
 }
 .errorlist {
     display: flex;
@@ -168,8 +149,8 @@ li {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #ececec;
-    height: 340px;
-    width: 310px;
+    height: 360px;
+    width: 360px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -183,7 +164,6 @@ label {
     font-weight: 500;
     font-size: 30px;
     font-family: 'Shippori Mincho B1', serif;
-    margin-left: 45px;
 }
 .input {
     width: 210px;
@@ -222,8 +202,8 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    margin-left: 105px;
+    margin-top: 100px;
+    margin-left: 10px;
 }
 .circle-user_2 {
     background: #70c5c0;
@@ -264,21 +244,27 @@ span {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 360px;
+}
+.main-cont_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
 }
 .forgot_password {
     color: #8da1ac;
     font-size: 14px;
     font-family: 'Akaya Telivigala', cursive;;
     font-weight: 300;
+    margin-left: 50px;
 }
 .registration {
     color: #ffffff;
     font-size: 14px;
     font-family: 'Akaya Telivigala', cursive;
     margin-left: 0;
-}
-.text {
-    display: inline-block;
 }
 .commentary {
     padding: 9px 10px;
@@ -308,6 +294,10 @@ span {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+.for_admin {
+    padding: 20px;
+    padding-left: 0;
 }
 .change {
     color: #fff;
@@ -362,7 +352,8 @@ span {
     color: #38b18a;
     font-family: 'Shippori Mincho B1', serif;
     margin-bottom: 40px;
-    max-width: 70%;
+    max-width: 100%;
+    display: inline-block;
 }
 .user_nav {
     color: #002651;
@@ -420,6 +411,7 @@ span {
     height: 70px;
     display: flex;
     font-size: 15px;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
     position: absolute;
@@ -445,4 +437,111 @@ span {
     font-size: 20px;
     font-family: 'Shippori Mincho B1', serif;
     color: #fff;
+}
+.image {
+    margin-left: 30px;
+}
+.art {
+    font-size: 18px;
+    color: #000;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    position: absolute;
+    top: -5px;
+    left: -30px;
+}
+.bod {
+    font-size: 18px;
+    color: #000;
+    font-family: 'Shippori Mincho B1', serif;
+    font-weight: 800;
+    position: absolute;
+    top: 55px;
+    left: -20px;
+}
+#id_image {
+    color: #000;
+}
+#main_news {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.new {
+    margin-left: 0;
+    margin-right: 20px;
+}
+.id_news_img {
+    margin-top: 30px;
+}
+.card_success {
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+.image_added {
+    color: #000;
+    font-size: 20px;
+    font-weight: 400;
+    font-family: 'Shippori Mincho B1', serif;
+}
+.image_name {
+    color: #6e8605;
+    display: inline;
+    font-size: 20px;
+}
+.visible {
+    opacity: 1;
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 500px;
+    height: 100px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    z-index: 1;
+}
+.button {
+    background: #107a8b;
+    width: 84px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #107a8b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    margin-left: 30px;
+}
+.button:focus {
+    width: 84px;
 }

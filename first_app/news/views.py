@@ -38,6 +38,7 @@ def create_view(request, *args, **kwargs):
             return render(request, 'forms.html', {'form': form, 'obj': obj})
     form = NewsModelForm(request.POST or None)
     return render(request, 'forms.html', {'form': form})
+
 @login_required
 @permission_required('user.is_staff')
 def edit_view(request, pk):

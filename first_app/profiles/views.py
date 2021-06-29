@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login, authenticate
-from .forms import LoginForm, RegisterForm, ProfileModelForm
+from .forms import LoginForm, RegisterForm
+# , # ProfileModelForm
 from django.contrib.auth.models import User
 from django.http import Http404
 # Create your views here.
