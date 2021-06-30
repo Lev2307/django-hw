@@ -35,8 +35,7 @@ body {
 .link {
     color: #f5eded;
     font-family: 'Akaya Telivigala', cursive;
-    font-size: 20px;
-    margin-left: 30px;
+    font-size: 25px;
     text-decoration: none;
 }
 h1 {
@@ -114,8 +113,8 @@ textarea {
     position: relative;
 }
 #id_article {
-    width: 150px;
-    height: 20px;
+    width: 220px;
+    height: 40px;
     letter-spacing: 1px;
     text-indent: 10px;
     color: #92898a;
@@ -123,24 +122,7 @@ textarea {
     border: 3px solid #fff;
     -webkit-transition: width .35s ease-in-out;
     transition: width .35s ease-in-out;
-}
-.button {
-    background: #107a8b;
-    width: 84px;
-    height: 40px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #107a8b;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    color: #fff;
-    font-size: 14px;
-    font-family: 'Shippori Mincho B1', serif;
-    margin-left: 30px;
-}
-.button:focus {
-    width: 84px;
+    margin-top: 30px;
 }
 .errorlist {
     display: flex;
@@ -430,6 +412,7 @@ span {
     height: 70px;
     display: flex;
     font-size: 15px;
+    justify-content: center;
     align-items: center;
     margin-bottom: 20px;
     position: absolute;
@@ -465,7 +448,7 @@ span {
     font-family: 'Shippori Mincho B1', serif;
     font-weight: 800;
     position: absolute;
-    top: -5px;
+    top: 35px;
     left: -30px;
 }
 .bod {
@@ -474,9 +457,120 @@ span {
     font-family: 'Shippori Mincho B1', serif;
     font-weight: 800;
     position: absolute;
-    top: 55px;
+    top: 98px;
     left: -20px;
 }
 #id_image {
     color: #000;
+}
+#main_news {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+.new {
+    margin-left: 0;
+    margin-right: 20px;
+}
+.id_news_img {
+    margin-top: 30px;
+}
+.card_success {
+    width: 550px;
+    height: 80px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+}
+.image_added {
+    color: #000;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Shippori Mincho B1', serif;
+}
+.image_name {
+    color: #6e8605;
+    display: inline;
+    font-size: 12px;
+}
+.visible {
+    position: absolute;
+    top: 40px;
+    left: 34%;
+    width: 550px;
+    height: 80px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: from_top 0.7s linear forwards;
+    transition: 0.7s;
+} 
+@keyframes from_top {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateY(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(30px);
+    }
+}
+.wrapper {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+}
+.button {
+    background: #107a8b;
+    width: 84px;
+    height: 40px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #107a8b;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Shippori Mincho B1', serif;
+    margin-left: 30px;
+}
+.button:focus {
+    width: 84px;
+}
+.text_img {
+    margin-top: 30px;
+    text-align: center;
+    line-height: 24px;
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.invisible {
+    display: none;
 }

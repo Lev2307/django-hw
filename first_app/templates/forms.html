@@ -1,3 +1,8 @@
+<head>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e6505d6080.js" crossorigin="anonymous"></script>
+</head>
 {% extends "base.html" %}
 
 {% load static %}
@@ -16,20 +21,29 @@
     </div>
 </div>
 
-<div class="card_success">
-    {% if obj.get_image_name %}
-        <h4>
+{% if obj.get_image_name %}
+    <div class="card_success">
+        <div class="wrapper_of_close">
+            <div class="close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <h4 class="text_img">
             <span class="image_added">image: <span class="image_name">{{ obj.get_image_name }}</span> was added successfully</span>
         </h4>
-    {% endif %}
-</div>
-
+    </div>
+{% endif %}
 <script>
     let card = document.querySelector('.card_success');
-    let image = document.querySelector('.wrapper');
+    let btn = document.querySelector('.wrapper');
+    let wrapper_cross = document.querySelector('.wrapper_of_close');
 
-    image.addEventListener('click', function() {
+    btn.addEventListener('click', function() {
         card.classList.toggle('visible');
+    });
+
+    wrapper_cross.addEventListener('click', function() {
+        card.classList.toggle('invisible');
     });
 </script>
 {% endblock %}

@@ -504,10 +504,9 @@ span {
     font-size: 20px;
 }
 .visible {
-    opacity: 1;
-    position: absolute;
+    /* position: absolute;
     top: 100px;
-    left: 50%;
+    left: 50%; */
     width: 500px;
     height: 100px;
     background-color: white;
@@ -516,6 +515,22 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: from_top 0.7s linear forwards;
+    transition: 0.7s;
+} 
+@keyframes from_top {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    50%{
+        opacity: 0.5;
+        transform: translateY(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(30px);
+    }
 }
 .wrapper {
     border-radius: 10px;
@@ -525,7 +540,6 @@ span {
     align-items: flex-start;
     font-size: 14px;
     font-family: 'Shippori Mincho B1', serif;
-    z-index: 1;
 }
 .button {
     background: #107a8b;
@@ -542,6 +556,6 @@ span {
     font-family: 'Shippori Mincho B1', serif;
     margin-left: 30px;
 }
-.button:focus {
-    width: 84px;
+.wrapper_of_close {
+    cursor: pointer;
 }
