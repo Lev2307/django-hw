@@ -70,7 +70,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 95vh;
 }
 form {
     display: flex;
@@ -507,7 +507,7 @@ span {
 .visible {
     position: absolute;
     top: 40px;
-    left: 34%;
+    left: 2%;
     width: 550px;
     height: 80px;
     background-color: white;
@@ -561,9 +561,10 @@ span {
     width: 84px;
 }
 .text_img {
-    margin-top: 30px;
+    margin-top: 20px;
     text-align: center;
     line-height: 24px;
+    margin-right: 80px;
 }
 .close {
     position: absolute;
@@ -573,4 +574,8 @@ span {
 }
 .invisible {
     display: none;
+}
+@media (min-height: 670px) and (max-height: 799px) {
+    @media (min-width: 900px) and (max-width: 1400px) {
+    }
 }
