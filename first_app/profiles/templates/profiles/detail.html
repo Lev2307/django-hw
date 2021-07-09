@@ -22,9 +22,12 @@
 
         {% if not profile.userinformation.profile_image %}
             <input type="submit" value="Добавить">
-        {% else %}  
+        {% else %}
             <input type="submit" value="Изменить">
         {% endif %}
     </form>
+    {% if profile.userinformation.profile_image %}
+        <img src="{% static profile.userinformation.profile_image.url %}" alt="{{ profile }}" height="100">
+    {% endif %} 
 
 {% endblock %}

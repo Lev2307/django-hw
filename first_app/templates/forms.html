@@ -35,11 +35,13 @@
 {% endif %}
 <script>
     let card = document.querySelector('.card_success');
-    let btn = document.querySelector('.wrapper');
+    let btn = document.querySelector('.button');
     let wrapper_cross = document.querySelector('.wrapper_of_close');
 
     btn.addEventListener('click', function() {
-        card.classList.toggle('visible');
+        setTimeout(()=> {
+            card.classList.toggle('visible');
+        }, 1000)
     });
 
     wrapper_cross.addEventListener('click', function() {

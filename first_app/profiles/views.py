@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login, authenticate
-from .forms import LoginForm, RegisterForm
-# , # ProfileModelForm
+from .forms import LoginForm, RegisterForm, ProfileModelForm
 from django.contrib.auth.models import User
 from django.http import Http404
 # Create your views here.
@@ -41,12 +40,12 @@ def detail_user_view(request, pk):
     except User.DoesNotExist:
         raise Http404
 
+    form = ProfileModelForm()
     if request.method == 'POST':
         form = ProfileModelForm(request.POST, request.FILES)
         if form.is_valid():
             obj = form.save(commit=False)
             obj.profile = user
             obj.save()
-        else:
-            form = ProfileModelForm()
+
     return render(request, 'profiles/detail.html', {'profile': user, 'form': form})

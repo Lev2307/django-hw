@@ -559,3 +559,9 @@ span {
 .wrapper_of_close {
     cursor: pointer;
 }
+.profile_image {
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 10px;
+}

@@ -13,7 +13,7 @@
 {% block content %}
 <h5 class="author">Author: {{ single_object.author }}</h5>
 {% if single_object.image %}
-    <img class="image" src="{% static single_object.image.url %}" alt="{{ single_object.article }} " height="400">
+    <img class="image" src="{% static single_object.image.url %}" alt="{{ single_object.article }}" height="400">
 {% endif %}
 
 <h1>{{ single_object.article }}</h1>
@@ -32,9 +32,9 @@
         <div class="time_user">
             <h1 class="date">{{ c.date.time }}</h1>
             <h1 class="user">{{ c.user }}</h1>
+            <img class="profile_image" src="{% static c.user.userinformation.profile_image.url %}" alt="">
         </div>
         <h1 class="text">{{ c.text }}</h1>
-    
         <h1 class="disp_none" style="display:none;">{{ c.pk }}</h1>
         <div class="edit_del">
             <a class="edit_comm" href="edit_commentary/{{c.pk}}">Редактировать</a>
