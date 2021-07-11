@@ -1,0 +1,59 @@
+<head>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e6505d6080.js" crossorigin="anonymous"></script>
+</head>
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}
+{{ block.super }} - {{ single_object.article }}
+{% endblock %}
+
+{% block content %}
+<h5 class="author">Author: {{ single_object.author }}</h5>
+{% if single_object.image %}
+    <img class="image" src="{% static single_object.image.url %}" alt="{{ single_object.article }}" height="400">
+{% endif %}
+
+<h1>{{ single_object.article }}</h1>
+
+{% include 'news/detail_snippet.html' with single_object=single_object %}
+
+{% if perms.user.is_staff %}
+    <div class="for_admin">
+        <a class="change" href="/news/edit/{{ single_object.pk }}">Изменить</a>
+        <a class="delete_article" href="/news/delete/{{ single_object.pk }}">Удалить</a>
+    </div>
+{% endif %}
+
+{% for c in single_object.commentary.all %}
+    <div class="commentary_block">
+        <div class="time_user">
+            <h1 class="date">{{ c.date.time }}</h1>
+            <h1 class="user">{{ c.user }}</h1>
+            <img class="profile_image" src="{% static c.user.userinformation.profile_image.url %}" alt="">
+        </div>
+        <h1 class="text">{{ c.text }}</h1>
+        <h1 class="disp_none" style="display:none;">{{ c.pk }}</h1>
+        <div class="edit_del">
+            <a class="edit_comm" href="edit_commentary/{{c.pk}}">Редактировать</a>
+            <a class="delete_comm" href="delete_commentary/{{c.pk}}">Удалить</a>
+        </div>
+    </div>
+{% endfor %}
+<a class="commentary" href="/news/commentary/{{ single_object.pk }}">Комментировать</a>
+
+<div class="likes_block">
+    <h5 class="likes_count">Likes: {{ single_object.get_likes }}</h5>
+    <form action="/news/like/{{ single_object.pk }}/" method="post">
+        {% csrf_token %}
+        {% if not liked %}
+            <input class="like" type="submit" value="лайк">
+        {% else %}
+            <input class="dislike" type="submit" value="дизлайк">
+        {% endif %}
+    </form>
+</div>
+
+{% endblock %}

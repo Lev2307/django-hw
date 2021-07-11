@@ -1,0 +1,51 @@
+<head>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e6505d6080.js" crossorigin="anonymous"></script>
+</head>
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+<div class="container-for-form">
+    <div class="card">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h3 class="art">article</h3>
+            <h3 class="bod">body</h3>
+            {{ form.as_p }}
+            <div class="wrapper">
+                <input type="submit" value="Create" class="button">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if obj.get_image_name %}
+    <div class="card_success">
+        <div class="wrapper_of_close">
+            <div class="close">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <h4 class="text_img">
+            <span class="image_added">image: <span class="image_name">{{ obj.get_image_name }}</span> was added successfully</span>
+        </h4>
+    </div>
+{% endif %}
+<script>
+    let card = document.querySelector('.card_success');
+    let btn = document.querySelector('.button');
+    let wrapper_cross = document.querySelector('.wrapper_of_close');
+
+    btn.addEventListener('click', function() {
+        setTimeout(()=> {
+            card.classList.toggle('visible');
+        }, 1000)
+    });
+
+    wrapper_cross.addEventListener('click', function() {
+        card.classList.toggle('invisible');
+    });
+</script>
+{% endblock %}

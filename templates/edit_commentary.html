@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+Комментировать - {{ single_object.article }}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Commentary text - {{ commentary.text }}</h1>
+
+    <form action="" method="post">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input class="to_change" type="submit" value="Изменить">
+    </form>
+
+
+
+{% endblock %}

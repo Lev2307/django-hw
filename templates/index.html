@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}
+    My awesome App
+{% endblock %}
+
+{% block content %}
+
+{% for news in news_list %}
+    <div id="main_news">
+        {% if news.image_thumbnail %}
+            <img class="id_news_img" src="{{ news.image_thumbnail.url }}" alt="{{ news.article }}thumbnail">
+        {% endif %}
+        <h1 class="new">
+            <a class="link" href="news/{{ news.id }}">{{ news.article }}</a>
+        </h1>
+    </div>
+{% endfor %}
+
+<h1 style="margin-left: 60px;">Create News</h1>
+<a class="create_article" href="news/create" style="margin-left: 60px;">Create</a>
+{% endblock %}

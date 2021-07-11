@@ -1,0 +1,25 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+
+{% load static %}
+<nav class="navbar">
+    <a class="homepage" href="/">HomePage</a>
+
+    <div class="nav-menu">
+        {% if user.is_authenticated %}
+            <div class="profile_block">
+                {% if user.userinformation.profile_image %}
+                    <img class="user_img" src="{% static user.userinformation.profile_image.url %}" alt="{{ profile }}" height="30">
+                {% else %}
+                    <img style="width: 50px;height: 50px;margin-top: 8px;position: absolute;left: -50px;top: -25px;" class="default_avatar" src="{% static 'media/default/default_avatar.png' %}" alt="" height="30">
+                {% endif %} 
+                <span class="user_nav">user: <a href="/profile/{{ user.id }}">{{ user }}</a></span>
+            </div>
+            <a class="logout" href="/logout">Выйти</a>
+        {% else %}
+            <div class="wrapper">
+                <a class="login" href="/login">Войти</a>
+            </div>
+        {% endif %}
+    </div>
+</nav>

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+    <title>{% block title %}News app{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/main_style.css' %}">
+</head>
+<body>
+    {% include "navbar.html" %}
+    <div class="main-cont">
+        {% block content %}
+        {% endblock %}
+    
+        {% block js %}
+        {% endblock %}
+    </div>
+</body>
+</html>
