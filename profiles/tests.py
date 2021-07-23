@@ -1,9 +1,10 @@
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.contrib.auth import get_user_model
 from django.conf import settings
 
 
 User = get_user_model()
+c = Client()
 
 
 class ProfileException(Exception):
@@ -18,7 +19,8 @@ class ProfileTest(TestCase):
         self.admin_user_test.is_superuser = True
         self.admin_user_test.set_password('test')
         self.admin_user_test.save()
-
+        self.admin_user_password = 'test'
+        
     def test_user_name(self):
         self.assertNotEqual(self.admin_user_test.username, 'test0')
 
@@ -33,3 +35,16 @@ class ProfileTest(TestCase):
     def test_login_url(self):
         login_url = '/login/'
         self.assertEqual(settings.LOGIN_URL, login_url)
+
+    def test_login_request(self):
+        login_url = settings.LOGIN_URL
+        user_data = {
+            'username': self.admin_user_test,
+            'password': self.admin_user_password
+        }
+        response = c.post(login_url, user_data, follow=True)
+        status_code = response.status_code
+        # print(dir(response))
+        redirect_path = response.request.get("PATH_INFO")
+        self.assertEqual(redirect_path, settings.LOGIN_REDIRECT_URL)
+        self.assertEqual(status_code, 200)
